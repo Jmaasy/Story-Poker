@@ -55,3 +55,15 @@ export const Analytics = {
     }
 }
 
+/**
+ * hack to make compiler happy :D
+ */
+declare var umami: umami.umami;
+declare namespace umami {
+    interface umami {
+        track(
+            event_name: string,
+            event_data?: { [key: string]: any },
+        ): Promise<string> | undefined;
+    }
+}
